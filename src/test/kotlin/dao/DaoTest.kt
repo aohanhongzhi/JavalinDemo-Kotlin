@@ -1,13 +1,12 @@
 package dao
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import data.Department
 import model.DepartmentsTable
 import mu.KotlinLogging
 import org.ktorm.database.Database
 import org.ktorm.dsl.*
-import org.ktorm.entity.filter
-import org.ktorm.entity.find
-import org.ktorm.entity.sequenceOf
-import org.ktorm.entity.toList
+import org.ktorm.entity.*
 import kotlin.test.Test
 
 /**
@@ -23,6 +22,12 @@ class DaoTest {
 
     @Test
     fun `database test`() {
+
+
+        val objectMapper = ObjectMapper()
+        objectMapper.findAndRegisterModules()
+
+
         val database =
             Database.connect("jdbc:mysql://mysql.cupb.top:3306/eric", user = "eric", password = "dream,1234..")
 
@@ -44,12 +49,17 @@ class DaoTest {
 //        FIXME 有值，但是属性为空
         log.info("Employ $employee")
 
+        val departments1 = database.departments.toCollection(ArrayList())
+        log.info("departments1 $departments1")
+
         val employees = database.departments
             .filter { it.name eq "Java" }
             .toList()
 
 //        FIXME 有值，但是属性为空，查出list不为0
         log.info("Employs $employees")
+
+        database.departments.add(Department { name = "a"; location = "c" })
 
     }
 
