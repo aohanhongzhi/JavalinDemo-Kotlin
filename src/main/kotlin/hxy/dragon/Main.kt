@@ -16,8 +16,7 @@ import org.ktorm.entity.update
 
 private val log = KotlinLogging.logger {}
 
-val database =
-    Database.connect("jdbc:mysql://mysql.cupb.top:3306/eric", user = "eric", password = "dream,1234..")
+val database = Database.connect("jdbc:mysql://mysql.cupb.top:3306/eric", user = "eric", password = "dream,1234..")
 
 fun main() {
 
@@ -51,6 +50,7 @@ fun main() {
     app.post("/department") { ctx ->
 //     参数处理    https://javalin.io/documentation#context
 //        https://blog.csdn.net/ZHXLXH/article/details/127084395
+//         这里的申请神奇之处，就是interface竟然可以反序列化 kotlinx.serialize是不行的
         var department = ctx.bodyAsClass(Department::class.java)
 
         log.info { "增加 $department" }
