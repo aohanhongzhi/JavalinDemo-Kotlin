@@ -31,3 +31,7 @@ https://blog.csdn.net/xgw1010/article/details/120023159
 # 打包
 
 https://blog.csdn.net/setlilei/article/details/123173339
+
+另一种成熟的发行版方式
+
+![img_1.png](img_1.png)
