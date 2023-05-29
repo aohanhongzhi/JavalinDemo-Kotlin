@@ -1,6 +1,8 @@
 Javalin for Kotlin
 ===
 
+kotlin语法 没有注解的使用。完全就是主打函数式编程。
+
 本项目主要实现功能如下：
 
 1. json序列化
@@ -9,6 +11,8 @@ Javalin for Kotlin
 4. [日志实现](https://juejin.cn/post/6940302422388506632) : https://github.com/oshai/kotlin-logging
 5. ORM层
    https://www.ktorm.org/
+
+> 本项目已经非常完善了。该有的都有了。
 
 https://github.com/kotlin-orm/ktorm
 
