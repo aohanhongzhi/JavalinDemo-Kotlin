@@ -36,6 +36,12 @@ https://blog.csdn.net/xgw1010/article/details/120023159
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.5")
 ```
 
+# 运行
+
+```shell
+./gradlew run
+```
+
 # 打包
 
 ```shell
