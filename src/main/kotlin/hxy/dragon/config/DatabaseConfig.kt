@@ -1,4 +1,4 @@
-package hxy.dragon.model
+package hxy.dragon.config
 
 import org.ktorm.database.Database
 

@@ -3,7 +3,7 @@ package hxy.dragon.controller
 
 import hxy.dragon.entity.BaseResponse
 import hxy.dragon.model.Department
-import hxy.dragon.model.database
+import hxy.dragon.config.database
 import hxy.dragon.model.departments
 import io.javalin.http.Context
 import mu.KotlinLogging
