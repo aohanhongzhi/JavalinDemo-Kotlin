@@ -1,8 +1,8 @@
 package hxy.dragon.entity
 
 /**
- * @description
+ * @description 加上泛型，而不是 Any
  * @author eric
  * @date 2023/5/29
  */
-data class BaseResponse(var code: Int = 200, var message: String, var data: Any)
+data class BaseResponse<T>(var code: Int = 200, var message: String, var data: T)

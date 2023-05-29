@@ -5,6 +5,8 @@ kotlin语法 没有注解的使用。完全就是主打函数式编程。
 
 Javalin与Ktorm的结合，要更好，在序列化与前端交互方便。比Ktor更好，这个着实设计的太复杂。
 
+Javalin 的 Route 设计上与Golang的gin 框架很类似
+
 本项目主要实现功能如下：
 
 1. json序列化

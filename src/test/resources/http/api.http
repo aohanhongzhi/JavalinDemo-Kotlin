@@ -15,7 +15,7 @@ DELETE http://localhost:7000/department
 Content-Type: application/json; charset=UTF-8
 
 {
-  "id": 14
+  "id": 12
 }
 
 ### 修改
