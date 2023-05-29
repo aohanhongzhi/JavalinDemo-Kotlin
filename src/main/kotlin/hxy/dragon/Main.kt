@@ -2,13 +2,17 @@ package hxy.dragon
 
 import hxy.dragon.entity.BaseResponse
 import hxy.dragon.entity.param.UserParam
-import io.javalin.Javalin
 import hxy.dragon.model.Department
 import hxy.dragon.model.departments
+import io.javalin.Javalin
 import mu.KotlinLogging
 import org.ktorm.database.Database
 import org.ktorm.dsl.eq
-import org.ktorm.entity.*
+import org.ktorm.entity.add
+import org.ktorm.entity.find
+import org.ktorm.entity.removeIf
+import org.ktorm.entity.toCollection
+import org.ktorm.entity.update
 
 private val log = KotlinLogging.logger {}
 
@@ -31,7 +35,7 @@ fun main() {
     app.get("/param") { ctx ->
 //     参数处理    https://javalin.io/documentation#context
         var name = ctx.queryParam("name")
-        log.info { name }
+        log.info { "参数 name = $name" }
         ctx.json(mapOf(1 to name, 2 to "中文乱码"))
     }
 
