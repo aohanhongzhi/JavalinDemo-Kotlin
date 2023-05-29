@@ -1,8 +1,9 @@
 package dao
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import data.Department
-import model.DepartmentsTable
+import hxy.dragon.model.Department
+import hxy.dragon.model.Departments
+import hxy.dragon.model.departments
 import mu.KotlinLogging
 import org.ktorm.database.Database
 import org.ktorm.dsl.*
@@ -16,7 +17,6 @@ import kotlin.test.Test
  */
 private val log = KotlinLogging.logger {}
 
-val Database.departments get() = this.sequenceOf(DepartmentsTable)
 
 class DaoTest {
 
@@ -31,18 +31,18 @@ class DaoTest {
         val database =
             Database.connect("jdbc:mysql://mysql.cupb.top:3306/eric", user = "eric", password = "dream,1234..")
 
-        database.insert(DepartmentsTable) {
+        database.insert(Departments) {
             set(it.name, "Java")
             set(it.location, "Shanghai")
         }
 
-        val select = database.from(DepartmentsTable).select()
+        val select = database.from(Departments).select()
         for (row in select) {
-            println(row[DepartmentsTable.name])
+            println(row[Departments.name])
         }
 
 
-        database.delete(DepartmentsTable) { it.id eq 4 }
+        database.delete(Departments) { it.id eq 4 }
 
         val employee = database.departments.find { it.id eq 2 }
 
@@ -60,6 +60,7 @@ class DaoTest {
         log.info("Employs $employees")
 
         database.departments.add(Department { name = "a"; location = "c" })
+
 
     }
 

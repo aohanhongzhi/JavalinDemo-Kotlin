@@ -5,6 +5,7 @@ plugins {
 
 group = "hxy.dragon"
 version = "1.0-SNAPSHOT"
+var MainClass = "hxy.dragon.MainKt"
 
 repositories {
     mavenLocal()
@@ -19,6 +20,9 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.1")
 
     implementation("org.ktorm:ktorm-core:3.6.0")
+    implementation("org.ktorm:ktorm-jackson:3.6.0")
+    implementation("org.ktorm:ktorm-support-mysql:3.6.0")
+
     implementation("mysql:mysql-connector-java:8.0.33")
 
     implementation("org.slf4j:slf4j-api:1.7.32")
@@ -38,5 +42,18 @@ kotlin {
 }
 
 application {
-    mainClass.set("MainKt")
+    mainClass.set(MainClass)
+}
+
+sourceSets {
+    getByName("main") {
+        java.srcDirs("src/main/kotlin", "src/main/java")
+    }
+}
+
+// 打包
+tasks.jar.configure {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    manifest.attributes["Main-Class"] = MainClass
+    from(configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) })
 }

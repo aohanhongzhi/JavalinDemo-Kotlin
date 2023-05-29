@@ -1,4 +1,4 @@
-package entity.param
+package hxy.dragon.entity.param
 
 /**
  * @description
