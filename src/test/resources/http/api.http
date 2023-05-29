@@ -1,0 +1,10 @@
+POST http://localhost:7000/user
+Content-Type: application/json; charset=UTF-8
+
+{
+  "username":"eric",
+  "age":1
+}
+### 查询数据库
+
+GET http://localhost:7000/department
