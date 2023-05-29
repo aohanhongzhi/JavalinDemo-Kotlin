@@ -10,18 +10,15 @@ Content-Type: application/json; charset=UTF-8
 
 GET http://localhost:7000/department
 
-### 查询数据库
-
+### 删除
 DELETE http://localhost:7000/department
 Content-Type: application/json; charset=UTF-8
 
 {
-  "id": 18,
-  "name": "Java",
-  "location": "Shanghai"
+  "id": 14
 }
 
-###
+### 修改
 PUT http://localhost:7000/department
 Content-Type: application/json; charset=UTF-8
 
@@ -31,11 +28,11 @@ Content-Type: application/json; charset=UTF-8
   "location": "Shanghai"
 }
 
-###
+### 新增
 POST http://localhost:7000/department
 Content-Type: application/json; charset=UTF-8
 
 {
-  "name": "Java2",
+  "name": "Java7",
   "location": "Shanghai"
 }

@@ -3,6 +3,8 @@ Javalin for Kotlin
 
 kotlin语法 没有注解的使用。完全就是主打函数式编程。
 
+Javalin与Ktorm的结合，要更好，在序列化与前端交互方便。比Ktor更好，这个着实设计的太复杂。
+
 本项目主要实现功能如下：
 
 1. json序列化
@@ -16,7 +18,7 @@ kotlin语法 没有注解的使用。完全就是主打函数式编程。
 
 https://github.com/kotlin-orm/ktorm
 
-jetbrain自己的ORM
+jetbrain自己的ORM，设计的也很复杂。
 
 https://github.com/JetBrains/Exposed
 
@@ -33,6 +35,10 @@ https://blog.csdn.net/xgw1010/article/details/120023159
 ```
 
 # 打包
+
+```shell
+./gradlew jar
+```
 
 https://blog.csdn.net/setlilei/article/details/123173339
 

@@ -7,7 +7,8 @@ import org.ktorm.schema.Table
 import org.ktorm.schema.int
 import org.ktorm.schema.varchar
 
-// 对Service层的
+
+// 对Service层的。 这里神奇就是 interface 也能反序列化接收参数和序列化返回数据
 interface Department : Entity<Department> {
     companion object : Entity.Factory<Department>()
 

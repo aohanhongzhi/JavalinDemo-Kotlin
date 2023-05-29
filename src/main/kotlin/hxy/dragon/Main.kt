@@ -57,7 +57,7 @@ fun main() {
 
         val add = database.departments.add(department)
 
-        ctx.json(BaseResponse(200, "success", add))
+        ctx.json(BaseResponse(200, "success", "affect row = $add"))
 
     }
 
