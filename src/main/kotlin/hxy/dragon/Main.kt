@@ -38,11 +38,11 @@ fun main() {
 //    }
 
     app.exception(FileNotFoundException::class.java) { e, ctx ->
-        log.info { "path不存在 : $ctx.req().requestURI" }
+        log.warn { "path不存在 : $ctx.req().requestURI $e" }
         ctx.status(404)
     }.error(404) { ctx ->
         val req = ctx.req()
-        log.info {
+        log.warn {
             "方法或者路径不存在，method: ${req.method},path: ${req.requestURI.toString()}"
         }
         ctx.json(BaseResponse(404, "路径或者方法不存在", req.method + ":" + ctx.req().requestURI))
@@ -51,13 +51,14 @@ fun main() {
     // HTTP exceptions
     app.exception(NullPointerException::class.java) { e, ctx ->
         // handle nullpointers here
-        log.info { e }
+        log.error { "$ctx.req().requestURI 发生NPE $e" }
     }
 
     app.exception(Exception::class.java) { e, ctx ->
         // handle general exceptions here
         // will not trigger if more specific exception-mapper found
-        log.info { e }
+        log.error { "$ctx.req().requestURI 发生异常 $e" }
+
     }
 
     Runtime.getRuntime().addShutdownHook(Thread { app.stop() })

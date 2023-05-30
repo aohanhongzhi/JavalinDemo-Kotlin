@@ -5,6 +5,10 @@ Content-Type: application/json; charset=UTF-8
   "username": "eric",
   "age": 1
 }
+
+###
+GET http://localhost:7000/param/?name=好的
+
 ### 查询数据库
 
 GET http://localhost:7000/department?id=1
@@ -44,3 +48,7 @@ Content-Type: application/json; charset=UTF-8
 ### 查询数据库
 
 GET http://localhost:7000/depart?id=1
+
+### 查询数据库
+
+GET http://localhost:7000/depart/list

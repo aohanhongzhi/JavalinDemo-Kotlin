@@ -1,7 +1,7 @@
 Javalin for Kotlin
 ===
 
-kotlin语法 没有注解的使用。完全就是主打函数式编程。
+kotlin语法 没有`注解`的使用。完全就是主打 **函数式编程**。
 
 Javalin与Ktorm的结合，要更好，在序列化与前端交互方便。比Ktor更好，这个着实设计的太复杂。
 
@@ -25,17 +25,6 @@ jetbrain自己的ORM，设计的也很复杂。
 
 https://github.com/JetBrains/Exposed
 
-![img.png](assets/img/img.png)
-
-# 数据类报错
-
-Cannot construct instance of
-
-https://blog.csdn.net/xgw1010/article/details/120023159
-
-```kotlin
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.5")
-```
 
 # 运行
 
@@ -58,7 +47,30 @@ https://blog.csdn.net/setlilei/article/details/123173339
 
 # 问题
 
+## 序列化
+
+不是使用kotlinx.serialize的，使用Jackson-kotlin专用的。
+
+![img.png](assets/img/img.png)
+
+## 耗时
+
+框架本身运行，性能应该比Java更好。
+
 ![img_2.png](assets/img/img_2.png)
+
+![img.png](assets/img/mysql-time-normal.png)
+
+## 数据类报错
+
+Cannot construct instance of
+
+https://blog.csdn.net/xgw1010/article/details/120023159
+
+```kotlin
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.5")
+```
+
 
 # 拓展
 
