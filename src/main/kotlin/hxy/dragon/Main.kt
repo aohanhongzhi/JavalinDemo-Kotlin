@@ -40,7 +40,8 @@ fun main() {
     // 增加
     app.post("/department", DepartmentController::create)
 //    查询列表
-    app.get("/department", DepartmentController::list)
+    app.get("/department", DepartmentController::getOne)
+    app.get("/department/list", DepartmentController::list)
 //    修改
     app.put("/department", DepartmentController::update)
 //    删除

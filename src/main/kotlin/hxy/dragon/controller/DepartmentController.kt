@@ -23,6 +23,18 @@ private val log = KotlinLogging.logger {}
  */
 object DepartmentController {
 
+
+    fun getOne(ctx: Context){
+        val id = ctx.queryParam("id")
+        if (id.isNullOrEmpty()) {       
+            ctx.json(BaseResponse(404, "没有找到", departments))
+        }else {
+          var department =  database.departments.find{ it.id eq id }
+
+         ctx.json(BaseResponse(200, "找到了", department))
+        }
+    }
+
     fun list(ctx: Context) {
 
         // 下面数据转换就比较麻烦了，不是很简洁，虽然过程确实是这样。但是无奈不如Java的现有框架简单。
