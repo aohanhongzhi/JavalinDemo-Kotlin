@@ -69,7 +69,10 @@ fun main() {
  */
 
 fun routes(app: Javalin) {
-    app.get("/") { ctx -> ctx.result("Hello World，你好世界！") }
+    app.get("/") { ctx ->
+        log.info { "首页访问中" }
+        ctx.result("Hello World，你好世界！—— Javalin for kotlin")
+    }
     app.get("/param", IndexController::paramReceive)
     app.post("/user", IndexController::bodyReceive)
 
