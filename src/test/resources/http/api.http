@@ -5,14 +5,13 @@ Content-Type: application/json; charset=UTF-8
   "username": "eric",
   "age": 1
 }
+### 查询数据库
+
+GET http://localhost:7000/department?id=1
 
 ### 查询数据库
 
-GET http://localhost:7000/department
-
-### 查询数据库
-
-GET http://localhost:7000/department
+GET http://localhost:7000/department//list/
 
 ### 删除
 DELETE http://localhost:7000/department

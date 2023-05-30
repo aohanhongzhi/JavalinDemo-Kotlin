@@ -24,14 +24,15 @@ private val log = KotlinLogging.logger {}
 object DepartmentController {
 
 
-    fun getOne(ctx: Context){
-        val id = ctx.queryParam("id")
-        if (id.isNullOrEmpty()) {       
-            ctx.json(BaseResponse(404, "没有找到", departments))
-        }else {
-          var department =  database.departments.find{ it.id eq id }
+    fun getOne(ctx: Context) {
+        val id = ctx.queryParamAsClass("id", Int::class.java)
 
-         ctx.json(BaseResponse(200, "找到了", department))
+        var department = database.departments.find { it.id eq id.get() }
+
+        if (department == null) {
+            ctx.json(BaseResponse(404, "数据库没有检索到id=${id.get()}", null))
+        } else {
+            ctx.json(BaseResponse(200, "查询完成", department))
         }
     }
 
@@ -71,8 +72,8 @@ object DepartmentController {
         log.info { "增加 $department" }
 
         val add = database.departments.add(department)
-
-        ctx.json(BaseResponse(200, "success", "affect row = $add"))
+        ctx.status(201)
+        ctx.json(BaseResponse(201, "success", "affect row = $add"))
     }
 
     /**
