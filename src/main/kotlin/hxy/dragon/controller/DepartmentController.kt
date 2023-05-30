@@ -15,6 +15,7 @@ import org.ktorm.entity.removeIf
 import org.ktorm.entity.toCollection
 import org.ktorm.entity.update
 import java.util.*
+import kotlin.system.measureTimeMillis
 
 private val log = KotlinLogging.logger {}
 
@@ -39,8 +40,8 @@ object DepartmentController {
     }
 
     fun list(ctx: Context) {
-
-        // 下面数据转换就比较麻烦了，不是很简洁，虽然过程确实是这样。但是无奈不如Java的现有框架简单。
+        val timeCost = measureTimeMillis {
+            // 下面数据转换就比较麻烦了，不是很简洁，虽然过程确实是这样。但是无奈不如Java的现有框架简单。
 
 //        val departments = database.from(DepartmentsTable).select().map { row ->
 //            // 这一块，要一直hardcode就难受了，如果量特别大
@@ -51,20 +52,24 @@ object DepartmentController {
 //            )
 //        }
 
-        // 更简单方式
-        val departments = database.departments.toCollection(ArrayList())
+            // 更简单方式
+            val departments = database.departments.toCollection(ArrayList())
 
-        if (departments.isEmpty()) {
-            // 添加
-            database.departments.add(Department {
-                name = "add";
-                location = "address"
-            })
+            if (departments.isEmpty()) {
+                // 添加
+                database.departments.add(Department {
+                    name = "add";
+                    location = "address"
+                })
+            }
+            var msg = "数据库一共有 ${departments.size} 条数据"
+            log.info { msg }
+
+            ctx.json(BaseResponse(200, msg, departments))
         }
-        var msg = "数据库一共有 ${departments.size} 条数据"
-        log.info { msg }
 
-        ctx.json(BaseResponse(200, msg, departments))
+        log.info { "耗时 $timeCost ms" }
+
     }
 
     fun create(ctx: Context) {
