@@ -25,7 +25,7 @@ jetbrain自己的ORM，设计的也很复杂。
 
 https://github.com/JetBrains/Exposed
 
-![img.png](img.png)
+![img.png](assets/img/img.png)
 
 # 数据类报错
 
@@ -53,9 +53,19 @@ https://blog.csdn.net/setlilei/article/details/123173339
 
 另一种成熟的发行版方式
 
-![img_1.png](img_1.png)
+![img_1.png](assets/img/img_1.png)
 
 
 # 问题
 
-![img_2.png](img_2.png)
+![img_2.png](assets/img/img_2.png)
+
+# 拓展
+
+其他kotlin框架
+
+http://www.fireflysource.com/index.html
+
+https://github.com/hypercube1024/firefly
+
+
