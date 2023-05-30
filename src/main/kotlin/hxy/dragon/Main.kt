@@ -5,9 +5,11 @@ import hxy.dragon.controller.DepartmentController
 import hxy.dragon.controller.IndexController
 import hxy.dragon.entity.BaseResponse
 import io.javalin.Javalin
+import io.javalin.apibuilder.ApiBuilder.delete
 import io.javalin.apibuilder.ApiBuilder.get
 import io.javalin.apibuilder.ApiBuilder.path
 import io.javalin.apibuilder.ApiBuilder.post
+import io.javalin.apibuilder.ApiBuilder.put
 import io.javalin.json.JavalinJackson
 import mu.KotlinLogging
 import java.io.FileNotFoundException
@@ -75,22 +77,27 @@ fun routes(app: Javalin) {
     // 组合式 Handler groups https://javalin.io/documentation#handler-groups
     app.routes() {
         path("depart") {
-            get(DepartmentController::getOne)
             post(DepartmentController::create)
+            delete(DepartmentController::delete)
+            put(DepartmentController::update)
+            get(DepartmentController::getOne)
             path("list") {
                 get(DepartmentController::list)
             }
         }
     }
 
-    // 增加
+    //    增加
     app.post("/department", DepartmentController::create)
-    app.get("/department", DepartmentController::getOne)
-//    查询列表
-    app.get("/department/list", DepartmentController::list)
-//    修改
-    app.put("/department", DepartmentController::update)
-//    删除
+    //    删除
     app.delete("/department", DepartmentController::delete)
+    //    修改
+    app.put("/department", DepartmentController::update)
+    //    查询
+    app.get("/department", DepartmentController::getOne)
+    //    查询列表
+    app.get("/department/list", DepartmentController::list)
+
+
 }
 
