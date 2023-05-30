@@ -1,11 +1,12 @@
 package hxy.dragon.controller
 
 
+import hxy.dragon.config.database
 import hxy.dragon.entity.BaseResponse
 import hxy.dragon.model.Department
-import hxy.dragon.config.database
 import hxy.dragon.model.departments
 import io.javalin.http.Context
+import io.javalin.http.queryParamAsClass
 import mu.KotlinLogging
 import org.ktorm.dsl.eq
 import org.ktorm.entity.add
@@ -25,12 +26,13 @@ object DepartmentController {
 
 
     fun getOne(ctx: Context) {
-        val id = ctx.queryParamAsClass("id", Int::class.java)
+        val id = ctx.queryParamAsClass<Int>("id").get()
+//        val id = ctx.queryParamAsClass("id", Int::class.java).get()
 
-        var department = database.departments.find { it.id eq id.get() }
+        var department = database.departments.find { it.id eq id }
 
         if (department == null) {
-            ctx.json(BaseResponse(404, "数据库没有检索到id=${id.get()}", null))
+            ctx.json(BaseResponse(404, "数据库没有检索到id=${id}", null))
         } else {
             ctx.json(BaseResponse(200, "查询完成", department))
         }
