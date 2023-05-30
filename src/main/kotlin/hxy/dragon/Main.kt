@@ -27,11 +27,6 @@ fun main() {
 
     app.get("/") { ctx -> ctx.result("Hello World，你好世界！") }
 
-    app.get("/json") { ctx ->
-        // some code
-        ctx.json(mapOf(1 to "a", 2 to "中文乱码"))
-    }
-
     app.get("/param") { ctx ->
 //     参数处理    https://javalin.io/documentation#context
         var name = ctx.queryParam("name")
@@ -85,5 +80,7 @@ fun main() {
         // will not trigger if more specific exception-mapper found
         log.info { e }
     }
+
+    Runtime.getRuntime().addShutdownHook(Thread { app.stop() })
 
 }

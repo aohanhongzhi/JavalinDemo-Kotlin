@@ -15,6 +15,7 @@ Javalin 的 Route 设计上与Golang的gin 框架很类似
 4. [日志实现](https://juejin.cn/post/6940302422388506632) : https://github.com/oshai/kotlin-logging
 5. ORM层
    https://www.ktorm.org/
+6.  gradle https://docs.gradle.org/nightly/userguide/kotlin_dsl.html
 
 > 本项目已经非常完善了。该有的都有了。
 

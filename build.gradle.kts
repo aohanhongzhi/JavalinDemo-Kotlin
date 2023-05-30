@@ -13,15 +13,18 @@ repositories {
     mavenCentral()
 }
 
+var ktorm_version: String by rootProject.extra // 这个属性值去 gradle.properties里面修改下。
+val jackson_version: String by extra("2.15.1")
+
 dependencies {
     implementation("io.javalin:javalin:5.5.0")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.1")
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jackson_version")
 //    https://github.com/FasterXML/jackson-module-kotlin
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.1")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version")
 
-    implementation("org.ktorm:ktorm-core:3.6.0")
-    implementation("org.ktorm:ktorm-jackson:3.6.0")
-    implementation("org.ktorm:ktorm-support-mysql:3.6.0")
+    implementation("org.ktorm:ktorm-core:$ktorm_version")
+    implementation("org.ktorm:ktorm-jackson:$ktorm_version")
+    implementation("org.ktorm:ktorm-support-mysql:$ktorm_version")
 
     implementation("mysql:mysql-connector-java:8.0.33")
 
