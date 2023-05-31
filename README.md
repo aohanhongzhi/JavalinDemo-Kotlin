@@ -1,7 +1,7 @@
 Javalin for Kotlin
 ===
 
-kotlin语法 没有`注解`的使用。完全就是主打 **函数式编程**。
+kotlin语法 没有`注解`（有注解，支持注解，只是在这种框架里用不上）的使用。完全就是主打 **函数式编程**。
 
 Javalin与Ktorm的结合，要更好，在序列化与前端交互方便。比Ktor更好，这个着实设计的太复杂。
 
@@ -15,7 +15,7 @@ Javalin 的 Route 设计上与Golang的gin 框架很类似
 4. [日志实现](https://juejin.cn/post/6940302422388506632) : https://github.com/oshai/kotlin-logging
 5. ORM层
    https://www.ktorm.org/
-6.  gradle https://docs.gradle.org/nightly/userguide/kotlin_dsl.html
+6. gradle https://docs.gradle.org/nightly/userguide/kotlin_dsl.html
 
 > 本项目已经非常完善了。该有的都有了。
 
