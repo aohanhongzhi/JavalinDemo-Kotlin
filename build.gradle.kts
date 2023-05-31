@@ -1,5 +1,8 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+
 plugins {
     kotlin("jvm") version "1.8.21"
+    id("io.ebean") version "13.11.0"
     application
 }
 
@@ -22,9 +25,18 @@ dependencies {
 //    https://github.com/FasterXML/jackson-module-kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version")
 
+//    第一种数据库ORM框架
     implementation("org.ktorm:ktorm-core:$ktorm_version")
     implementation("org.ktorm:ktorm-jackson:$ktorm_version")
     implementation("org.ktorm:ktorm-support-mysql:$ktorm_version")
+
+//    第二种数据库ORM框架
+
+    implementation("io.ebean:ebean:13.6.5")
+    // query bean generation
+    annotationProcessor("io.ebean:querybean-generator:13.6.5")
+
+    testImplementation("io.ebean:ebean-test:13.6.5")
 
     implementation("mysql:mysql-connector-java:8.0.33")
 
@@ -38,6 +50,9 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    testLogging.showStandardStreams = true
+    testLogging.exceptionFormat = TestExceptionFormat.FULL
+    
 }
 
 kotlin {
@@ -59,4 +74,8 @@ tasks.jar.configure {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
     manifest.attributes["Main-Class"] = MainClass
     from(configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) })
+}
+
+ebean {
+    debugLevel = 1
 }

@@ -1,0 +1,5 @@
+datasource:
+  db:
+    username: eric
+    password: dream,1234..
+    url: jdbc:mysql://mysql.cupb.top:3306/eric

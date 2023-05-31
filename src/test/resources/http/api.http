@@ -47,8 +47,31 @@ Content-Type: application/json; charset=UTF-8
 
 ### 查询数据库
 
-GET http://localhost:7000/depart?id=1
+GET http://localhost:7000/customer?id=1
 
 ### 查询数据库
 
-GET http://localhost:7000/depart/list
+GET http://localhost:7000/customer/list
+
+### 创建
+
+
+POST http://localhost:7000/customer/
+Content-Type: application/json
+
+{
+  "name": "Customer123"
+}
+
+### 查询数据库
+
+DELETE http://localhost:7000/customer?id=7
+
+### 修改
+PUT http://localhost:7000/customer/
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "Customer123"
+}

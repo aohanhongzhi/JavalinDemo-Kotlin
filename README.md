@@ -1,7 +1,7 @@
 Javalin for Kotlin
 ===
 
-kotlin语法 没有`注解`（有注解，支持注解，只是在这种框架里用不上）的使用。完全就是主打 **函数式编程**。
+kotlin 也可以使用`注解`。主打 **函数式编程**。
 
 Javalin与Ktorm的结合，要更好，在序列化与前端交互方便。比Ktor更好，这个着实设计的太复杂。
 
@@ -19,12 +19,19 @@ Javalin 的 Route 设计上与Golang的gin 框架很类似
 
 > 本项目已经非常完善了。该有的都有了。
 
+
+推荐使用的ORM
+
+https://ebean.io/
+
+https://github.com/ebean-orm/ebean
+
+不推荐使用的，写起来有点复杂。
 https://github.com/kotlin-orm/ktorm
 
-jetbrain自己的ORM，设计的也很复杂。
+jetbrain自己的ORM，设计的也很复杂。也不推荐使用。
 
 https://github.com/JetBrains/Exposed
-
 
 # 运行
 
@@ -43,7 +50,6 @@ https://blog.csdn.net/setlilei/article/details/123173339
 另一种成熟的发行版方式
 
 ![img_1.png](assets/img/img_1.png)
-
 
 # 问题
 
@@ -70,7 +76,6 @@ https://blog.csdn.net/xgw1010/article/details/120023159
 ```kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.5")
 ```
-
 
 # 拓展
 

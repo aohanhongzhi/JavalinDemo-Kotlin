@@ -1,6 +1,7 @@
 package hxy.dragon
 
 import com.fasterxml.jackson.annotation.JsonInclude
+import hxy.dragon.controller.CustomerController
 import hxy.dragon.controller.DepartmentController
 import hxy.dragon.controller.IndexController
 import hxy.dragon.entity.BaseResponse
@@ -80,13 +81,13 @@ fun routes(app: Javalin) {
 
     // 组合式 Handler groups https://javalin.io/documentation#handler-groups
     app.routes() {
-        path("depart") {
-            post(DepartmentController::create)
-            delete(DepartmentController::delete)
-            put(DepartmentController::update)
-            get(DepartmentController::getOne)
+        path("customer") {
+            post(CustomerController::createCustomer)
+            delete(CustomerController::deleteCustomer)
+            put(CustomerController::updateCustomer)
+            get(CustomerController::getOne)
             path("list") {
-                get(DepartmentController::list)
+                get(CustomerController::listCustomer)
             }
         }
     }
