@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import hxy.dragon.model.Department
 import hxy.dragon.model.Departments
 import hxy.dragon.model.departments
-import mu.KotlinLogging
+import io.github.oshai.kotlinlogging.KotlinLogging
 import org.ktorm.database.Database
 import org.ktorm.dsl.*
 import org.ktorm.entity.*

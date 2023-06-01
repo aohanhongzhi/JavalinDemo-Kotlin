@@ -12,7 +12,7 @@ var MainClass = "hxy.dragon.MainKt"
 
 repositories {
     mavenLocal()
-    maven("https://maven.aliyun.com/repository/public/")
+//    maven("https://maven.aliyun.com/repository/public/")
     mavenCentral()
 }
 
