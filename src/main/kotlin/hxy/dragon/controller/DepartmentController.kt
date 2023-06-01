@@ -5,9 +5,9 @@ import hxy.dragon.config.database
 import hxy.dragon.entity.BaseResponse
 import hxy.dragon.model.Department
 import hxy.dragon.model.departments
+import io.github.oshai.kotlinlogging.KotlinLogging
 import io.javalin.http.Context
 import io.javalin.http.queryParamAsClass
-import mu.KotlinLogging
 import org.ktorm.dsl.eq
 import org.ktorm.entity.add
 import org.ktorm.entity.find

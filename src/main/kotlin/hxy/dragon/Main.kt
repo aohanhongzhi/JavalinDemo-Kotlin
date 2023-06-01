@@ -5,6 +5,7 @@ import hxy.dragon.controller.CustomerController
 import hxy.dragon.controller.DepartmentController
 import hxy.dragon.controller.IndexController
 import hxy.dragon.entity.BaseResponse
+import io.github.oshai.kotlinlogging.KotlinLogging
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.delete
 import io.javalin.apibuilder.ApiBuilder.get
@@ -12,7 +13,6 @@ import io.javalin.apibuilder.ApiBuilder.path
 import io.javalin.apibuilder.ApiBuilder.post
 import io.javalin.apibuilder.ApiBuilder.put
 import io.javalin.json.JavalinJackson
-import mu.KotlinLogging
 import java.io.FileNotFoundException
 
 private val log = KotlinLogging.logger {}

@@ -1,8 +1,8 @@
 package hxy.dragon.controller
 
 import hxy.dragon.entity.param.UserParam
+import io.github.oshai.kotlinlogging.KotlinLogging
 import io.javalin.http.Context
-import mu.KotlinLogging
 
 /**
  * @description
