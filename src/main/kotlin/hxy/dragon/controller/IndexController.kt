@@ -18,6 +18,13 @@ object IndexController {
         //     参数处理    https://javalin.io/documentation#context
         var name = ctx.queryParam("name")
         log.info { "参数 name = $name" }
+
+//        创建ArrayList
+        var arrayList = arrayListOf<String>()
+        if (name != null) {
+            arrayList.add(name)
+        }
+//        创建Map
         ctx.json(mapOf(1 to name, 2 to "中文乱码"))
     }
 
