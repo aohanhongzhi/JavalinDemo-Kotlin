@@ -40,7 +40,7 @@ dependencies {
 
     implementation("mysql:mysql-connector-java:8.0.33")
 
-    implementation("org.slf4j:slf4j-api:1.7.32")
+    implementation("org.slf4j:slf4j-api:2.0.7")
     implementation("ch.qos.logback:logback-classic:1.4.7")
 //    https://github.com/oshai/kotlin-logging
     implementation("io.github.oshai:kotlin-logging-jvm:4.0.0-beta-29")
