@@ -9,24 +9,30 @@ Javalin 的 Route 设计上与Golang的gin 框架很类似
 
 本项目主要实现功能如下：
 
-1. json序列化
+1. json序列化 jackson-kotlin
 2. 参数反序列化
 3. 乱码解决
 4. [日志实现](https://juejin.cn/post/6940302422388506632) : https://github.com/oshai/kotlin-logging
-5. ORM层
-   https://www.ktorm.org/
+5. ORM层 https://ebean.io/
 6. gradle https://docs.gradle.org/nightly/userguide/kotlin_dsl.html
 
 > 本项目已经非常完善了。该有的都有了。
 
+主要技术栈
+
+ 名称      | 用途        | 官网                 
+---------|-----------|--------------------
+ Javalin | web       | https://javalin.io 
+ ebean   | ORM层操作数据库 | https://ebean.io/  
+ Gradle  | 项目构建工具    | https://gradle.org 
 
 推荐使用的ORM
-
 https://ebean.io/
-
 https://github.com/ebean-orm/ebean
 
-不推荐使用的，写起来有点复杂。
+Ktorm不推荐使用的，写起来有点复杂。
+
+https://www.ktorm.org/
 https://github.com/kotlin-orm/ktorm
 
 jetbrain自己的ORM，设计的也很复杂。也不推荐使用。
