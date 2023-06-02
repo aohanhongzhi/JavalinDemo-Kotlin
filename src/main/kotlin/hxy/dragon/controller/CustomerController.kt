@@ -49,7 +49,7 @@ object CustomerController {
             // 更新方式2
             DB.update(customer)
 
-            // 更新方式3
+            // 更新方式3：更新制定字段
             val rows = DB.update(Customer::class.java).set("name", customer.name).where().eq("id", customer.id).update()
             log.info { "更新影响行数 $rows" }
         }
