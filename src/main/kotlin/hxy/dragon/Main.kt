@@ -29,6 +29,8 @@ fun main() {
 //             如果是字段值是null，那么就序列化直接忽略
             mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL)
         })
+        config.plugins.enableDevLogging() // 调试请求日志
+        config.plugins.enableRouteOverview("routes") // 访问 http://localhost:7000/routes
     }.start(7000)
 
     routes(app)
@@ -44,7 +46,7 @@ fun main() {
     }.error(404) { ctx ->
         val req = ctx.req()
         log.warn {
-            "方法或者路径不存在，method: ${req.method},path: ${req.requestURI.toString()}"
+            "方法或者路径不存在，method: ${req.method},path: ${req.requestURI}"
         }
         ctx.json(BaseResponse(404, "路径或者方法不存在", req.method + ":" + ctx.req().requestURI))
     }
