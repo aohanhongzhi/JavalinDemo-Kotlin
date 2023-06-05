@@ -109,5 +109,7 @@
         <appender-ref ref="WARN_FILE"/>
         <appender-ref ref="ERROR_FILE"/>
     </logger>
+    <!-- SQL and bind values -->
+    <logger name="io.ebean.SQL" level="TRACE"/>
 
 </configuration>

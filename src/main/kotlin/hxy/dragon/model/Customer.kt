@@ -1,6 +1,7 @@
 package hxy.dragon.model
 
 import io.ebean.Model
+import io.ebean.annotation.Length
 import javax.persistence.Entity
 import javax.persistence.Id
 
@@ -14,5 +15,8 @@ class Customer : Model() {
     var id: Long = 0
 
     var name: String? = null
+
+    @Length(100)
+    var email: String? = null
 }
   
