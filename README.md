@@ -3,7 +3,7 @@ Javalin for Kotlin
 
 kotlin 也可以使用`注解`。主打 **函数式编程**。
 
-Javalin与Ktorm的结合，要更好，在序列化与前端交互方便。比Ktor更好，这个着实设计的太复杂。
+Javalin与Ktorm的结合，要更好，在序列化与前端交互方便。ebean比Ktor更好，Ktor着实设计的太复杂。
 
 Javalin 的 Route 设计上与Golang的gin 框架很类似
 
@@ -27,12 +27,15 @@ Javalin 的 Route 设计上与Golang的gin 框架很类似
  Gradle  | 项目构建工具    | https://gradle.org 
 
 推荐使用的ORM
+
 https://ebean.io/
+
 https://github.com/ebean-orm/ebean
 
 Ktorm不推荐使用的，写起来有点复杂。
 
 https://www.ktorm.org/
+
 https://github.com/kotlin-orm/ktorm
 
 jetbrain自己的ORM，设计的也很复杂。也不推荐使用。
