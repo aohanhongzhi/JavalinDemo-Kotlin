@@ -26,13 +26,12 @@ dependencies {
 //    https://github.com/FasterXML/jackson-module-kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version")
 
-//    第一种数据库ORM框架
+//    第一种数据库ORM框架 建议放弃
     implementation("org.ktorm:ktorm-core:$ktorm_version")
     implementation("org.ktorm:ktorm-jackson:$ktorm_version")
     implementation("org.ktorm:ktorm-support-mysql:$ktorm_version")
 
-//    第二种数据库ORM框架
-
+//    第二种数据库ORM框架 推荐
     implementation("io.ebean:ebean:$ebean_version")
     // query bean generation
     annotationProcessor("io.ebean:querybean-generator:$ebean_version")
