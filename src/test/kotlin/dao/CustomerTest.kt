@@ -5,6 +5,7 @@ import io.ebean.DB
 import io.github.oshai.kotlinlogging.KotlinLogging
 import kotlin.test.Test
 
+
 private val log = KotlinLogging.logger {}
 
 class CustomerTest {
@@ -24,7 +25,13 @@ class CustomerTest {
         var found = DB.find(Customer::class.java, id)
 
         // update
-        DB.update(Customer::class.java).set("name", "eric").where().eq("id", customer.id).update()
+        val set = DB.update(Customer::class.java).set("name", "eric")
+        var email = ""
+        if (email != null) {
+            // 需要这样判空，动态的设置更新才行。把决定权交给用户处理，就是麻烦了点
+            set.set("email", email)
+        }
+        set.where().eq("id", customer.id).update()
 
         // find by Id
         var found2 = DB.find(Customer::class.java, id)
@@ -46,6 +53,16 @@ class CustomerTest {
 
         log.info("Customer affect row = {}", rows)
 
+    }
+
+    @Test
+    fun `test insert`() {
+        val customer = Customer()
+
+        customer.name = "a"
+        customer.email = "Hello@gmail.com"
+
+        customer.save()
     }
 }
   
