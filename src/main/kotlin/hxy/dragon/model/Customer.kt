@@ -12,9 +12,9 @@ import javax.persistence.Id
 class Customer : Model() {
 
     @Id
-    var id: Long = 0
+    var id: Long = 0 //默认值为 0
 
-    var name: String? = null
+    var name: String? = null // 默认值为null
 
     @Length(100)
     var email: String? = null
