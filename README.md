@@ -103,6 +103,17 @@ Ebean.update(user, "name"); // 只更新name属性，不更新age属性
 
 这样，即使年龄属性为null，它也不会被更新到数据库中。
 
+@Id的Field没有配置表主键无法返回id就会报错。
+
+https://github.com/ebean-orm/ebean/issues/3100
+
+```kotlin
+Autoincrement getGeneratedKeys () returned no rows ?
+javax.persistence.PersistenceException: Autoincrement getGeneratedKeys () returned no rows ?
+at app//io.ebeaninternal.server.persist.dml.InsertHandler.setGeneratedKey(InsertHandler.java:139)
+        at app//io.ebeaninternal.server.persist.dml.InsertHandler.getGeneratedKeys(InsertHandler.java:126)
+```
+
 # 拓展
 
 其他kotlin框架

@@ -15,6 +15,11 @@ import javax.persistence.Id
  */
 @Entity
 class StudentModel(name: String?) : Model() {
+    /**
+     * 加上了 @Id的注解，看其上面备注是 The mapped column for the primary key of the entity is assumed to be the primary key of the primary table
+     * 所以对应的数据库应该是需要有主键的
+     * 原因是 ebean的 save方法是会去获取返回信息，获取自增的id值
+     */
     @Id
     var id: Long? = null // 默认值为null
 

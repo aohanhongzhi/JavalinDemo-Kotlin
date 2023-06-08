@@ -3,13 +3,17 @@ package dao
 import hxy.dragon.entity.enums.Sex
 import hxy.dragon.model.StudentModel
 import io.ebean.DB
+import io.github.oshai.kotlinlogging.KotlinLogging
 import kotlin.test.Test
+
+private val log = KotlinLogging.logger {}
 
 /**
  * @description
  * @author eric
  * @date 2023/6/7
  */
+
 class StudentModelTest {
 
     @Test
@@ -17,6 +21,8 @@ class StudentModelTest {
         val studentModel = StudentModel("eric")
         studentModel.sex = Sex.MALE
         studentModel.save()
+//        DB.save(studentModel)
+        log.info("Student: $studentModel")
     }
 
     @Test
