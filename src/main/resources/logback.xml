@@ -2,7 +2,7 @@
 <configuration debug="false">
     <!-- 只有这一份配置是线上生产的，注意不要使用logback-prod作为名字，因为logback-spring才是正确的名字。 -->
     <!--获取配置中的参数信息-->
-
+    <contextName>kotlin</contextName>
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
     <!-- 自动新建文件夹 -->
     <property name="LOG_PATH" value="./logs"/>
