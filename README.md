@@ -1,5 +1,10 @@
-Javalin for Kotlin
-===
+<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">Javalin for Kotlin</h1>
+
+<p align="center">
+<a href="https://gitee.com/aohanhongzhi/JavalinDemo-Kotlin/stargazers"><img src="https://gitee.com/aohanhongzhi/JavalinDemo-Kotlin/badge/star.svg?theme=gvp"></a>
+<a href="https://gitee.com/failedgoddess/test-hub/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-green"></a>
+<a href="https://gitee.com/failedgoddess/test-hub"><img src="https://img.shields.io/badge/version-v1.0.0-blue"></a>
+</p>
 
 kotlin 也可以使用`注解`。主打 **函数式编程**。
 
