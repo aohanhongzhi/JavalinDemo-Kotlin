@@ -21,7 +21,7 @@ val jackson_version: String by extra("2.15.1")
 val ebean_version: String by extra("13.20.0")
 
 dependencies {
-    implementation("io.javalin:javalin:5.5.0")
+    implementation("io.javalin:javalin:5.6.0")
     implementation("com.fasterxml.jackson.core:jackson-databind:$jackson_version")
 //    https://github.com/FasterXML/jackson-module-kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version")

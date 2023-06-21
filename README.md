@@ -26,6 +26,8 @@ Javalin 的 Route 设计上与Golang的gin 框架很类似
  ebean   | ORM层操作数据库 | https://ebean.io/  
  Gradle  | 项目构建工具    | https://gradle.org 
 
+https://github.com/javalin/javalin
+
 推荐使用的ORM
 
 https://ebean.io/
