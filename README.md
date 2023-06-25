@@ -6,6 +6,9 @@
 <a href="https://gitee.com/failedgoddess/test-hub"><img src="https://img.shields.io/badge/version-v1.0.0-blue"></a>
 </p>
 
+gitee: https://gitee.com/aohanhongzhi/JavalinDemo-Kotlin
+github: https://github.com/aohanhongzhi/JavalinDemo-Kotlin
+
 kotlin 也可以使用`注解`。主打 **函数式编程**。
 
 Javalin与Ktorm的结合，要更好，在序列化与前端交互方便。ebean比Ktor更好，Ktor着实设计的太复杂。
@@ -30,6 +33,8 @@ Javalin 的 Route 设计上与Golang的gin 框架很类似
  Javalin | web       | https://javalin.io 
  ebean   | ORM层操作数据库 | https://ebean.io/  
  Gradle  | 项目构建工具    | https://gradle.org 
+
+https://github.com/javalin/javalin
 
 推荐使用的ORM
 
