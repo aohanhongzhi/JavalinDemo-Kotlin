@@ -11,6 +11,12 @@ github: https://github.com/aohanhongzhi/JavalinDemo-Kotlin
 
 kotlin 也可以使用`注解`。主打 **函数式编程**。
 
+https://kotlinlang.org/
+
+独立的编译器下载和安装（可以不需要，一般工程会自动下载kotlin-embed-compiler）。
+https://github.com/JetBrains/kotlin
+
+
 Javalin与Ktorm的结合，要更好，在序列化与前端交互方便。ebean比Ktor更好，Ktor着实设计的太复杂。
 
 Javalin 的 Route 设计上与Golang的gin 框架很类似
