@@ -16,7 +16,6 @@ https://kotlinlang.org/
 独立的编译器下载和安装（可以不需要，一般工程会自动下载kotlin-embed-compiler）。
 https://github.com/JetBrains/kotlin
 
-
 Javalin与Ktorm的结合，要更好，在序列化与前端交互方便。ebean比Ktor更好，Ktor着实设计的太复杂。
 
 Javalin 的 Route 设计上与Golang的gin 框架很类似
@@ -129,6 +128,10 @@ javax.persistence.PersistenceException: Autoincrement getGeneratedKeys () return
 at app//io.ebeaninternal.server.persist.dml.InsertHandler.setGeneratedKey(InsertHandler.java:139)
         at app//io.ebeaninternal.server.persist.dml.InsertHandler.getGeneratedKeys(InsertHandler.java:126)
 ```
+
+# kotlin
+
+[你可能一直在 kt 文件中写 Java 代码 | 社区分享](https://mp.weixin.qq.com/s/tVKxSA-ppk-zXYWKFYTDHA)
 
 # 拓展
 

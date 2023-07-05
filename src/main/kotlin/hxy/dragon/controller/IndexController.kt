@@ -21,7 +21,10 @@ object IndexController {
 
 //        创建ArrayList
         var arrayList = arrayListOf<String>()
-        if (name != null) {
+//        if (name != null) {
+//            arrayList.add(name)
+//        }
+        name?.let {
             arrayList.add(name)
         }
 //        创建Map
