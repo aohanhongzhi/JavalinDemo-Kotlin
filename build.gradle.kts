@@ -1,7 +1,7 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
-    kotlin("jvm") version "1.8.21"
+    kotlin("jvm") version "1.9.0"
     id("io.ebean") version "13.20.0"
     application
 }
