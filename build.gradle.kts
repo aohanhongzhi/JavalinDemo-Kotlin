@@ -43,7 +43,7 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.4.7")
 //    https://github.com/oshai/kotlin-logging
 //    implementation("io.github.oshai:kotlin-logging-jvm:4.0.0")
-    implementation("io.github.oshai:kotlin-logging-jvm:5.0.0-beta-04")
+    implementation("io.github.oshai:kotlin-logging-jvm:5.0.0")
 
 //    implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
