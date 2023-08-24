@@ -2,7 +2,7 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
     kotlin("jvm") version "1.9.0"
-    id("io.ebean") version "13.20.0"
+    id("io.ebean") version "13.21.0"
     application
 }
 
@@ -18,10 +18,10 @@ repositories {
 
 var ktorm_version: String by rootProject.extra // 这个属性值去 gradle.properties里面修改下。
 val jackson_version: String by extra("2.15.1")
-val ebean_version: String by extra("13.20.1")
+val ebean_version: String by extra("13.21.0")
 
 dependencies {
-    implementation("io.javalin:javalin:5.6.0")
+    implementation("io.javalin:javalin:5.6.2")
     implementation("com.fasterxml.jackson.core:jackson-databind:$jackson_version")
 //    https://github.com/FasterXML/jackson-module-kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version")
@@ -43,7 +43,7 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.4.7")
 //    https://github.com/oshai/kotlin-logging
 //    implementation("io.github.oshai:kotlin-logging-jvm:4.0.0")
-    implementation("io.github.oshai:kotlin-logging-jvm:5.0.2")
+    implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
 
 //    implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
