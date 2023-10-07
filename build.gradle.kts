@@ -8,7 +8,7 @@ plugins {
 
 group = "hxy.dragon"
 version = "1.0-SNAPSHOT"
-var MainClass = "hxy.dragon.MainKt"
+var mainClass = "hxy.dragon.MainKt"
 
 repositories {
     mavenLocal()
@@ -62,7 +62,7 @@ kotlin {
 }
 
 application {
-    mainClass.set(MainClass)
+    mainClass.set(mainClass)
 }
 
 sourceSets {
@@ -74,7 +74,7 @@ sourceSets {
 // 打包
 tasks.jar.configure {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
-    manifest.attributes["Main-Class"] = MainClass
+    manifest.attributes["Main-Class"] = mainClass
     from(configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) })
 }
 
