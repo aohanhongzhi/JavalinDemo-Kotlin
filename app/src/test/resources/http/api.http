@@ -1,0 +1,77 @@
+POST http://localhost:7000/user
+Content-Type: application/json; charset=UTF-8
+
+{
+  "username": "eric",
+  "age": 1
+}
+
+###
+GET http://localhost:7000/param/?name=好的
+
+### 查询数据库
+
+GET http://localhost:7000/department?id=36
+
+### 查询数据库
+
+GET http://localhost:7000/department//list/
+
+### 删除
+DELETE http://localhost:7000/department
+Content-Type: application/json; charset=UTF-8
+
+{
+  "id": 29
+}
+
+### 修改
+PUT http://localhost:7000/department
+Content-Type: application/json; charset=UTF-8
+
+{
+  "id": 1,
+  "name": "Java1",
+  "location": "Shanghai"
+}
+
+### 新增
+POST http://localhost:7000/department
+Content-Type: application/json; charset=UTF-8
+
+{
+  "name": "Java7",
+  "location": "Shanghai"
+}
+
+
+### 查询数据库
+
+GET http://localhost:7000/customer?id=1
+
+### 查询数据库
+
+GET http://localhost:7000/customer/list
+
+### 创建
+
+
+POST http://localhost:7000/customer/
+Content-Type: application/json
+
+{
+  "name": "Customer123"
+}
+
+### 查询数据库
+
+DELETE http://localhost:7000/customer?id=7
+
+### 修改
+PUT http://localhost:7000/customer/
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "Customer123"
+}
