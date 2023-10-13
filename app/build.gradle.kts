@@ -8,10 +8,15 @@
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm") version "1.9.10"
+    id("io.ebean") version "13.23.0"
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
 }
+
+group = "hxy.dragon"
+version = "1.0-SNAPSHOT"
+var mainKotlinClass = "hxy.dragon.MainKt"
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -77,10 +82,28 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass.set("javalin.kotlin.AppKt")
+    // 这里特别注意，不要把变量命名成mainClass，否则会导致死循环，最后栈溢出。
+    mainClass.set(mainKotlinClass)
 }
 
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+sourceSets {
+    getByName("main") {
+        java.srcDirs("src/main/kotlin", "src/main/java")
+    }
+}
+
+// 打包
+tasks.jar.configure {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    manifest.attributes["Main-Class"] = mainKotlinClass
+    from(configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) })
+}
+
+ebean {
+    debugLevel = 1
 }

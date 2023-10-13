@@ -66,7 +66,7 @@ https://github.com/JetBrains/Exposed
 # 打包
 
 ```shell
-./gradlew jar
+./gradlew jar -x test
 ```
 
 https://blog.csdn.net/setlilei/article/details/123173339
