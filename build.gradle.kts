@@ -1,18 +1,19 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
-    kotlin("jvm") version "1.9.10"
+//    kotlin("jvm") version "1.9.10"
+    id("org.jetbrains.kotlin.jvm") version "1.9.10"
     id("io.ebean") version "13.23.0"
     application
 }
 
 group = "hxy.dragon"
 version = "1.0-SNAPSHOT"
-var mainClass = "hxy.dragon.MainKt"
+var mainKotlinClass = "hxy.dragon.MainKt"
 
 repositories {
     mavenLocal()
-//    maven("https://maven.aliyun.com/repository/public/")
+    maven("https://maven.aliyun.com/repository/public/")
     mavenCentral()
 }
 
@@ -50,6 +51,10 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
+tasks.named<Test>("test") {
+    useJUnitPlatform()
+}
+
 tasks.test {
     useJUnitPlatform()
     testLogging.showStandardStreams = true
@@ -62,7 +67,8 @@ kotlin {
 }
 
 application {
-    mainClass.set(mainClass)
+    // 这里特别注意，不要把变量命名成mainClass，否则会导致死循环，最后栈溢出。
+    mainClass.set(mainKotlinClass)
 }
 
 sourceSets {
@@ -74,7 +80,7 @@ sourceSets {
 // 打包
 tasks.jar.configure {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
-    manifest.attributes["Main-Class"] = mainClass
+    manifest.attributes["Main-Class"] = mainKotlinClass
     from(configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) })
 }
 
