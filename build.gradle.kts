@@ -13,7 +13,8 @@ var mainKotlinClass = "hxy.dragon.MainKt"
 
 repositories {
     mavenLocal()
-    maven("https://maven.aliyun.com/repository/public/")
+//      <!--阿里云maven仓库更新会慢一两天左右，拉取失败的切换到maven中央仓库-->
+//    maven("https://maven.aliyun.com/repository/public/")
     mavenCentral()
 }
 
