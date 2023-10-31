@@ -30,7 +30,11 @@ object CustomerController {
     fun getOne(ctx: Context) {
         var id = ctx.queryParamAsClass<Int>("id").get()
         val customer = DB.find(Customer::class.java).where().eq("id", id).findOne()
-        ctx.json(BaseResponse(200, "查询结果", customer))
+        var obj = BaseResponse(200, "查询到了", customer)
+        if (customer == null) {
+            obj = BaseResponse(404, "没有找到数据", customer)
+        }
+        ctx.json(obj)
     }
 
     fun deleteCustomer(ctx: Context) {
