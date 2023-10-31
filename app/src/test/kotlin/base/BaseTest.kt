@@ -14,9 +14,9 @@ class BaseTest {
         customer.id = 8
         customer.name = "Customer"
         customer.takeIf {
-            customer.id > 5
+            it.id > 5
         }?.let {
-            log.info("$customer")
+            log.info("$it")
         }
     }
 
