@@ -8,7 +8,7 @@
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm") version "1.9.20"
-    id("io.ebean") version "13.23.2"
+    id("io.ebean") version "13.25.0"
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
@@ -27,7 +27,7 @@ repositories {
 
 var ktorm_version: String by rootProject.extra // 这个属性值去 gradle.properties里面修改下。
 val jackson_version: String by extra("2.15.1")
-val ebean_version: String by extra("13.23.2") // https://github.com/ebean-orm/ebean
+val ebean_version: String by extra("13.25.0") // https://github.com/ebean-orm/ebean
 
 
 dependencies {
