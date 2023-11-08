@@ -33,7 +33,7 @@ val ebean_version: String by extra("13.25.0") // https://github.com/ebean-orm/eb
 dependencies {
 
 
-    implementation("io.javalin:javalin:5.6.2")
+    implementation("io.javalin:javalin:5.6.3")
     implementation("com.fasterxml.jackson.core:jackson-databind:$jackson_version")
 //    https://github.com/FasterXML/jackson-module-kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version")
