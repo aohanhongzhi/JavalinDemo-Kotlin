@@ -49,9 +49,17 @@ https://github.com/ebean-orm/ebean
 
 另外推荐的ORM框架，更加高级。
 
+### jimmer
+
 https://github.com/babyfish-ct/jimmer
 
 https://babyfish-ct.gitee.io/jimmer-doc/
+
+### easy-query
+
+https://github.com/xuejmnet/easy-query
+
+https://xuejm.gitee.io/easy-query-doc/
 
 Ktorm不推荐使用的，写起来有点复杂。
 
