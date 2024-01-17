@@ -26,7 +26,8 @@ Javalin 的 Route 设计上与Golang的gin 框架很类似
 3. 乱码解决
 4. [日志实现](https://juejin.cn/post/6940302422388506632) : https://github.com/oshai/kotlin-logging
 5. ORM层 https://ebean.io/
-6. gradle https://docs.gradle.org/nightly/userguide/kotlin_dsl.html and https://docs.gradle.org/current/samples/sample_building_kotlin_applications.html
+6. gradle https://docs.gradle.org/nightly/userguide/kotlin_dsl.html
+   and https://docs.gradle.org/current/samples/sample_building_kotlin_applications.html
 
 > 本项目已经非常完善了。该有的都有了。
 
@@ -45,6 +46,20 @@ https://github.com/javalin/javalin
 https://ebean.io/
 
 https://github.com/ebean-orm/ebean
+
+另外推荐的ORM框架，更加高级。
+
+### jimmer
+
+https://github.com/babyfish-ct/jimmer
+
+https://babyfish-ct.gitee.io/jimmer-doc/
+
+### easy-query
+
+https://github.com/xuejmnet/easy-query
+
+https://xuejm.gitee.io/easy-query-doc/
 
 Ktorm不推荐使用的，写起来有点复杂。
 
