@@ -7,8 +7,8 @@
 
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.9.20"
-    id("io.ebean") version "13.25.0"
+    id("org.jetbrains.kotlin.jvm") version "1.9.22"
+    id("io.ebean") version "13.25.1"
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
@@ -27,7 +27,7 @@ repositories {
 
 var ktorm_version: String by rootProject.extra // 这个属性值去 gradle.properties里面修改下。
 val jackson_version: String by extra("2.15.1")
-val ebean_version: String by extra("13.25.0") // https://github.com/ebean-orm/ebean
+val ebean_version: String by extra("13.25.1") // https://github.com/ebean-orm/ebean
 
 
 dependencies {
@@ -51,11 +51,13 @@ dependencies {
 
     implementation("mysql:mysql-connector-java:8.0.33")
 
-    implementation("org.slf4j:slf4j-api:2.0.7")
-    implementation("ch.qos.logback:logback-classic:1.4.7")
+//    https://github.com/qos-ch/slf4j
+    implementation("org.slf4j:slf4j-api:2.0.11")
+//    https://github.com/qos-ch/logback
+    implementation("ch.qos.logback:logback-classic:1.4.14")
 //    https://github.com/oshai/kotlin-logging
 //    implementation("io.github.oshai:kotlin-logging-jvm:4.0.0")
-    implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
+    implementation("io.github.oshai:kotlin-logging-jvm:6.0.3")
 
 //    implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
