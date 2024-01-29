@@ -48,6 +48,7 @@ dependencies {
     // query bean generation
     annotationProcessor("io.ebean:querybean-generator:$ebean_version")
     testImplementation("io.ebean:ebean-test:$ebean_version")
+    implementation("io.ebean:ebean-mysql:$ebean_version")
 
     implementation("mysql:mysql-connector-java:8.0.33")
 

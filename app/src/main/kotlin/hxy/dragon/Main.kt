@@ -101,6 +101,7 @@ fun main() {
             dataSourceConfig.setUrl(url)
             dataSourceConfig.setUsername(username)
             dataSourceConfig.setPassword(password)
+            dataSourceConfig.setPlatform("mysql")
 
             // configuration ...
             val config = DatabaseConfig();
