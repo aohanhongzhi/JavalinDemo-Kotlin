@@ -66,6 +66,8 @@ dependencies {
     // Use the Kotlin JUnit 5 integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+
     // Use the JUnit 5 integration.
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.3")
 

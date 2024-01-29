@@ -60,7 +60,8 @@ POST http://localhost:7000/customer/
 Content-Type: application/json
 
 {
-  "name": "Customer123"
+  "name": "Customer12",
+  "email": "aohanhongzhi@qq.com"
 }
 
 ### 查询数据库
