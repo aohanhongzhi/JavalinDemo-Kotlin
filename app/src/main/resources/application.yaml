@@ -1,5 +1,16 @@
+# 这里的数据库配置被Main.kt里代码配置替换了。下面这个无效了
 datasource: # ebean orm的配置文件
   db:
-    username: eric
-    password: dream,1234..
-    url: jdbc:mysql://mysql.cupb.top:3306/eric
+    username: # 参考代码Main.kt
+    password: #
+    url: jdbc:mysql://x.x.x:3306/eric
+
+ebean:
+  ddl:
+    initSql: init.sql
+  dumpMetricsOnShutdown: true
+  dumpMetricsOptions: loc,sql,hash
+  test:
+    platform: mysql # h2, postgres, mysql, oracle, sqlserver, sqlite
+    ddlMode: dropCreate # none | dropCreate | migrations | create
+    dbName: db

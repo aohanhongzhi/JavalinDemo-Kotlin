@@ -48,6 +48,7 @@ dependencies {
     // query bean generation
     annotationProcessor("io.ebean:querybean-generator:$ebean_version")
     testImplementation("io.ebean:ebean-test:$ebean_version")
+    implementation("io.ebean:ebean-mysql:$ebean_version")
 
     implementation("mysql:mysql-connector-java:8.0.33")
 
@@ -65,6 +66,8 @@ dependencies {
 
     // Use the Kotlin JUnit 5 integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
 
     // Use the JUnit 5 integration.
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.3")

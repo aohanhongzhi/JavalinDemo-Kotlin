@@ -83,6 +83,18 @@ https://github.com/JetBrains/Exposed
 ./gradlew jar -x test
 ```
 
+注意运行的是
+
+```shell
+java -jar build/libs/JavalinDemo-Kotlin-1.0-SNAPSHOT.jar 
+```
+
+而不是,运行这个会报错 https://github.com/ebean-orm/ebean/issues/3314
+
+```shell
+java -jar app/build/libs/app-1.0-SNAPSHOT.jar 
+```
+
 https://blog.csdn.net/setlilei/article/details/123173339
 
 另一种成熟的发行版方式
