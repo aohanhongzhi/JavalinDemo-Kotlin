@@ -26,7 +26,7 @@ repositories {
 }
 
 var ktorm_version: String by rootProject.extra // 这个属性值去 gradle.properties里面修改下。
-val jackson_version: String by extra("2.15.1")
+val jackson_version: String by extra("2.16.1")
 val ebean_version: String by extra("13.26.0") // https://github.com/ebean-orm/ebean
 
 

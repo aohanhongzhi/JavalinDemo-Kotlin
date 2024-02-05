@@ -33,7 +33,7 @@ fun main() {
         config.http.defaultContentType = "text/plain; charset=utf-8" // 解决 ctx#result 返回中文乱码。
         config.router.ignoreTrailingSlashes = true // treat '/path' and '/path/' as the same path 默认就是支持尾斜杠
         config.router.treatMultipleSlashesAsSingleSlash = true // treat '/path//subpath' and '/path/subpath' as the same path
-        config.router.caseInsensitiveRoutes = true; // treat '/PATH' and '/path' as the same path
+        config.router.caseInsensitiveRoutes = true; // treat '/PATH' and '/path' as the same path 适合那种对方提供服务的接口，例如一些wxbot，方便后续人使用调试
         config.jsonMapper(JavalinJackson().updateMapper { mapper ->
 //             如果是字段值是null，那么就序列化直接忽略
             mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL)
