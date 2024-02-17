@@ -2,8 +2,8 @@ package hxy.dragon.model
 
 import io.ebean.Model
 import io.ebean.annotation.Length
-import javax.persistence.Entity
-import javax.persistence.Id
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
 
 /**
  *  最好设置一个DAO层，用封装 ebean，否则项目大了不好调试
