@@ -27,13 +27,13 @@ repositories {
 
 var ktorm_version: String by rootProject.extra // 这个属性值去 gradle.properties里面修改下。
 val jackson_version: String by extra("2.16.1")
-val ebean_version: String by extra("14.0.0") // https://github.com/ebean-orm/ebean
+val ebean_version: String by extra("15.0.1") // https://github.com/ebean-orm/ebean
 
 
 dependencies {
 
 //  https://github.com/javalin/javalin
-    implementation("io.javalin:javalin:6.1.0")
+    implementation("io.javalin:javalin:6.1.3")
     implementation("com.fasterxml.jackson.core:jackson-databind:$jackson_version")
 //    https://github.com/FasterXML/jackson-module-kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version")
