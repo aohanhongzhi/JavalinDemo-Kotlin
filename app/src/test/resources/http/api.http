@@ -49,7 +49,7 @@ Content-Type: application/json; charset=UTF-8
 
 GET http://localhost:7000/customer?id=1
 
-### 查询数据库
+### 查询数据库all
 
 GET http://localhost:7000/customer/list
 
