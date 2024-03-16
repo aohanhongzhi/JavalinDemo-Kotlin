@@ -21,6 +21,7 @@ interface Department : Entity<Department> {
 }
 
 // 数据库层的
+@Deprecated(message = "推荐使用ebean")
 object Departments : Table<Department>("t_department") {
     //    注意下面一定要绑定 bindTo 否则没有值
     val id = int("id").primaryKey().bindTo { it.id }
