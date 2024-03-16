@@ -2,6 +2,7 @@ package hxy.dragon.controller
 
 import hxy.dragon.entity.BaseResponse
 import hxy.dragon.model.Customer
+import hxy.dragon.service.CustomerService
 import io.ebean.DB
 import io.github.oshai.kotlinlogging.KotlinLogging
 import io.javalin.http.Context
@@ -23,7 +24,7 @@ object CustomerController {
     }
 
     fun listCustomer(ctx: Context) {
-        val findList = DB.find(Customer::class.java).findList()
+        var findList = CustomerService.list();
         ctx.json(BaseResponse(200, "查询list", findList))
     }
 
