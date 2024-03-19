@@ -53,3 +53,5 @@ tasks.jar.configure {
 ```
 
 ![Snipaste_2024-03-19_13-42-45.png](assets/img/Snipaste_2024-03-19_13-42-45.png)
+
+这也解释了为啥IDEA，或者.gradlew run 就可以直接运行，但是打包后无法运行，原因就是services的SPI配置文件最后只有一个，还是不对应的那个。
