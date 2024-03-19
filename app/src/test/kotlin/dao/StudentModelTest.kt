@@ -22,7 +22,7 @@ class StudentModelTest {
         studentModel.sex = Sex.MALE
         studentModel.save()
 //        DB.save(studentModel)
-        log.info("Student: $studentModel")
+        log.info { "Student: $studentModel" }
     }
 
     @Test

@@ -104,6 +104,7 @@ object DepartmentController {
         if (false) {
             val department1 = database.departments.find { it.id eq department.id }
             val delete = department1?.delete()
+            log.info { "删除结果 $delete" }
         }
         // 直接删除
         val removeIf = database.departments.removeIf { it.id eq department.id }

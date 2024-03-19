@@ -90,14 +90,11 @@ https://realm.io/
 注意运行的是
 
 ```shell
-java -jar build/libs/JavalinDemo-Kotlin-1.0-SNAPSHOT.jar 
-```
-
-而不是,运行这个会报错 https://github.com/ebean-orm/ebean/issues/3314
-
-```shell
 java -jar app/build/libs/app-1.0-SNAPSHOT.jar 
 ```
+
+运行可能会报错 https://github.com/ebean-orm/ebean/issues/3314
+解决办法 [EBEAN.md](EBEAN.md)
 
 https://blog.csdn.net/setlilei/article/details/123173339
 

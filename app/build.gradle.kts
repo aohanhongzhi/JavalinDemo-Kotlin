@@ -108,7 +108,10 @@ sourceSets {
 tasks.jar.configure {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
     manifest.attributes["Main-Class"] = mainKotlinClass
-    from(configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) })
+    from(configurations.runtimeClasspath.get().filter {
+        // 只打包ebean-platform-mysql，除了这个，其他的不打包，免得SPI注入的文件给覆盖了。io.ebean.config.dbplatform.DatabasePlatformProvider
+        it.name.endsWith("jar") && (it.name.contains("ebean-platform-mysql") || !it.name.contains("ebean-platform"))
+    }.map { zipTree(it) })
 }
 
 ebean {
