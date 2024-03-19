@@ -126,6 +126,7 @@ tasks.register<Jar>("customJar") {
 
     manifest {
         attributes["Main-Class"] = mainKotlinClass
+        attributes["Class-Path"] = ""
     }
 }
 
