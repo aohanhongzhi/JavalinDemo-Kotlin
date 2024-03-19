@@ -114,6 +114,22 @@ tasks.jar.configure {
     }.map { zipTree(it) })
 }
 
+// 下面这个是chatgpt提供的，打包的确实都是jar，但是运行报错。还得继续研究  ./gradlew customJar
+tasks.register<Jar>("customJar") {
+//    baseName = "your-project-name"
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    version = "1.0"
+    from(sourceSets.main.get().output)
+
+    // 包含第三方 JAR
+    from(configurations.getByName("runtimeClasspath").filter { it.name.endsWith("jar") })
+
+    manifest {
+        attributes["Main-Class"] = mainKotlinClass
+    }
+}
+
+
 ebean {
     debugLevel = 1
 }
