@@ -14,7 +14,8 @@ import jakarta.persistence.Id
  * @date 2023/6/7
  */
 @Entity
-class StudentModel(name: String?) : Model() {
+class StudentModel(name: String? = null) : Model() {
+
     /**
      * 加上了 @Id的注解，看其上面备注是 The mapped column for the primary key of the entity is assumed to be the primary key of the primary table
      * 所以对应的数据库应该是需要有主键的
