@@ -20,6 +20,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
+import java.io.File
 import java.io.FileNotFoundException
 
 private val log = KotlinLogging.logger {}
@@ -78,52 +79,57 @@ fun main() {
     }.events { event ->
         event.serverStarting {
             // 启动的时候加载配置信息，给数据库加上配置。
-
+            // configuration ...
+            val config = DatabaseConfig();
             // 读取 JSON 文件内容
             // 读取配置文件，从配置文件中加载这个变量。 【腾讯文档】系统配置信息 https://docs.qq.com/doc/DSFdLamxuUXNWRVZJ
             val databaseJsonFile = System.getProperty("user.home") + "/.config/eric-config/database.json"
-            val jsonContent = readJsonFile(databaseJsonFile)
 
-            // 使用 Kotlin 标准库中的 Json 对象解析 JSON 字符串为 JsonObject
-            val jsonObject = Json.parseToJsonElement(jsonContent).jsonObject
+            // 检查文件是否存在
+            val file = File(databaseJsonFile)
+            if (file.exists()) {
+                println("文件存在")
+                val jsonContent = readJsonFile(databaseJsonFile)
 
-            // 获取 JSON 中的具体字段值
-            val url = jsonObject["spring.datasource.url"]?.jsonPrimitive?.contentOrNull
-            val username = jsonObject["spring.datasource.username"]?.jsonPrimitive?.contentOrNull
-            val password = jsonObject["spring.datasource.password"]?.jsonPrimitive?.contentOrNull
+                // 使用 Kotlin 标准库中的 Json 对象解析 JSON 字符串为 JsonObject
+                val jsonObject = Json.parseToJsonElement(jsonContent).jsonObject
 
-            // 打印获取到的值
-            println("数据库链接: $url")
+                // 获取 JSON 中的具体字段值
+                val url = jsonObject["spring.datasource.url"]?.jsonPrimitive?.contentOrNull
+                val username = jsonObject["spring.datasource.username"]?.jsonPrimitive?.contentOrNull
+                val password = jsonObject["spring.datasource.password"]?.jsonPrimitive?.contentOrNull
 
-            // https://ebean.io/docs/intro/configuration/#factory
-            // datasource
-            val dataSourceConfig = DataSourceConfig()
-            dataSourceConfig.setUrl(url)
-            dataSourceConfig.setUsername(username)
-            dataSourceConfig.setPassword(password)
-            dataSourceConfig.setPlatform("mysql")
+                // 打印获取到的值
+                println("数据库链接: $url")
 
-            // configuration ...
-            val config = DatabaseConfig();
-            config.setDataSourceConfig(dataSourceConfig)
+                // https://ebean.io/docs/intro/configuration/#factory
+                // datasource
+                val dataSourceConfig = DataSourceConfig()
+                dataSourceConfig.setUrl(url)
+                dataSourceConfig.setUsername(username)
+                dataSourceConfig.setPassword(password)
+                dataSourceConfig.setPlatform("mysql")
+                config.setDataSourceConfig(dataSourceConfig)
+                // create database instance
+                val database = DatabaseFactory.create(config)
 
-            // create database instance
-            val database = DatabaseFactory.create(config)
-
-            // 自动建表
-            val sqlUpdate = database.sqlUpdate(
-                """
+                // 自动建表
+                val sqlUpdate = database.sqlUpdate(
+                    """
                     CREATE TABLE if not exists  `customer1`   (
-                                                `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-                                                `email` varchar(120) DEFAULT NULL,
-                                                `name` varchar(11) DEFAULT NULL,
-                                                PRIMARY KEY (`id`)
+                    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                    `email` varchar(120) DEFAULT NULL,
+                    `name` varchar(11) DEFAULT NULL,
+                    PRIMARY KEY (`id`)
                     ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-                """.trimIndent()
-            )
-            val execute = sqlUpdate.execute()
-            if (execute > 0) {
-                log.info { "第一次自动建表成功 $execute" }
+                    """.trimIndent()
+                )
+                val execute = sqlUpdate.execute()
+                if (execute > 0) {
+                    log.info { "第一次自动建表成功 $execute" }
+                }
+            } else {
+                log.error { "sql配置文件不存在 $databaseJsonFile" }
             }
         }
     }.start(7000)
@@ -153,7 +159,7 @@ fun main() {
     app.exception(Exception::class.java) { e, ctx ->
         // handle general exceptions here
         // will not trigger if more specific exception-mapper found
-        log.error { "$ctx.req().requestURI 发生异常 $e" }
+        log.error(ctx.req().requestURI + "发生异常 $e", e)
 
     }
 

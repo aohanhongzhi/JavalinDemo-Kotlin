@@ -55,3 +55,54 @@ tasks.jar.configure {
 ![Snipaste_2024-03-19_13-42-45.png](assets/img/Snipaste_2024-03-19_13-42-45.png)
 
 这也解释了为啥IDEA，或者.gradlew run 就可以直接运行，但是打包后无法运行，原因就是services的SPI配置文件最后只有一个，还是不对应的那个。
+
+# 打包后运行出问题 jakarta.persistence.PersistenceException: hxy.dragon.model.Customer is NOT an Entity Bean registered with this server
+
+https://github.com/ebean-orm/ebean/issues/3371
+
+```kotlin
+14:28:39.919 kotlin [JettyServerThreadPool-Virtual-9] ERROR at io.github.oshai.kotlinlogging.KLogger$DefaultImpls.error (KLogger.kt:810) - /customer/list发生异常 jakarta.persistence.PersistenceException: hxy.dragon.model.Customer is NOT an Entity Bean registered with this server?
+jakarta.persistence.PersistenceException: hxy.dragon.model.Customer is NOT an Entity Bean registered with this server?
+	at io.ebeaninternal.server.core.DefaultServer.desc(DefaultServer.java:1866)
+	at io.ebeaninternal.server.core.DefaultServer.createQuery(DefaultServer.java:801)
+	at io.ebeaninternal.server.core.DefaultServer.find(DefaultServer.java:789)
+	at io.ebean.DB.find(DB.java:774)
+	at hxy.dragon.service.CustomerService.list(CustomerService.kt:26)
+	at hxy.dragon.controller.CustomerController.listCustomer(CustomerController.kt:27)
+	at io.javalin.router.Endpoint.handle(Endpoint.kt:52)
+	at io.javalin.router.ParsedEndpoint.handle(ParsedEndpoint.kt:15)
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda$9$lambda$7$lambda$6(DefaultTasks.kt:52)
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:99)
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:64)
+	at io.javalin.http.servlet.JavalinServlet.handle(JavalinServlet.kt:50)
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:30)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587)
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:52)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.Server.handle(Server.java:563)
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100)
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.lang.VirtualThread.run(VirtualThread.java:311)
+```
+
