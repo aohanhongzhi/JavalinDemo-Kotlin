@@ -31,6 +31,11 @@ class CustomerTest {
             // 需要这样判空，动态的设置更新才行。把决定权交给用户处理，就是麻烦了点
             set.set("email", email)
         }
+
+        email?.let {
+            set.set("email", email)
+        }
+
         set.where().eq("id", customer.id).update()
 
         // find by Id
